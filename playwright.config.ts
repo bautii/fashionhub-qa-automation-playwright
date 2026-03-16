@@ -1,0 +1,36 @@
+import { defineConfig, devices } from '@playwright/test';
+import * as fs from 'fs';
+
+let baseURL = process.env.BASE_URL;
+
+if (!baseURL) {
+  try {
+    const config = JSON.parse(fs.readFileSync('./test-config.json', 'utf8'));
+    baseURL = config.baseURL;
+  } catch {}
+}
+
+if (!baseURL) {
+  baseURL = 'https://pocketaces2.github.io/fashionhub/';
+}
+
+export default defineConfig({
+  testDir: './tests',
+  timeout: 30_000,
+  expect: { timeout: 5000 },
+  fullyParallel: true,
+  forbidOnly: !!process.env.CI,
+  retries: process.env.CI ? 2 : 0,
+  workers: process.env.CI ? 1 : undefined,
+  reporter: [['html'], ['list']],
+  use: {
+    baseURL,
+    trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
+  },
+  projects: [
+    { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
+    { name: 'firefox', use: { ...devices['Desktop Firefox'] } },
+    { name: 'webkit', use: { ...devices['Desktop Safari'] } },
+  ],
+});
