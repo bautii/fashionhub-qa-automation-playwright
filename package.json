@@ -1,0 +1,16 @@
+{
+  "name": "fashionhub-qa-automation-playwright",
+  "version": "1.0.0",
+  "description": "FashionHub Automation Suite - QA Team Lead Technical Challenge",
+  "scripts": {
+    "test": "playwright test",
+    "test:local": "BASE_URL=http://localhost:4000/fashionhub/ npm test",
+    "test:staging": "BASE_URL=https://staging-env/fashionhub/ npm test",
+    "test:prod": "BASE_URL=https://pocketaces2.github.io/fashionhub/ npm test",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "typescript": "^5.6.0"
+  }
+}
