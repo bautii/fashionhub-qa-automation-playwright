@@ -36,7 +36,7 @@ Automated test suite built with **Playwright + TypeScript** for the FashionHub d
 ### 1. Installation
 
 ```bash
-git clone https://github.com/[YOUR-USERNAME]/fashionhub-qa-automation-playwright.git
+git clone https://github.com/bautii/fashionhub-qa-automation-playwright.git
 cd fashionhub-qa-automation-playwright
 npm install
 
