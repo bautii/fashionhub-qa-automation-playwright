@@ -38,9 +38,7 @@ git clone https://github.com/bautii/fashionhub-qa-automation-playwright.git
 cd fashionhub-qa-automation-playwright
 npm install
 
----
-
-### 2. Running the Tests
+2. Running the Tests
 
 Command,Environment,Description
 npm run test,Production,Default (recommended)
@@ -50,8 +48,6 @@ npm run test:local,Local,Uses localhost:4000
 
 Example with custom URL (highest priority):
 BashBASE_URL=https://staging-env/fashionhub/ npm test
-
----
 
 3. Environment Configuration
 The framework checks in this order:
